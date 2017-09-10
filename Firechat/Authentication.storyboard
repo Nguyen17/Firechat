@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4RE-3U-07U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4RE-3U-07U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--AuthenticationVC-->
+        <!--Authentication View Controller-->
         <scene sceneID="TlY-b9-dIb">
             <objects>
-                <viewController storyboardIdentifier="AuthVC" id="4RE-3U-07U" customClass="AuthenticationVC" customModule="Based" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="4RE-3U-07U" customClass="AuthenticationViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="koL-SO-gYZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ce4-kS-35x"/>
@@ -22,19 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebase" translatesAutoresizingMaskIntoConstraints="NO" id="9kY-O3-7q8">
-                                <rect key="frame" x="57" y="596" width="261" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="NaC-U6-lTF"/>
-                                    <constraint firstAttribute="width" constant="261" id="PZa-bh-2e6"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwO-T9-9zj">
-                                <rect key="frame" x="143.5" y="581.5" width="88.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SOS-ry-ubB">
                                 <rect key="frame" x="16" y="203.5" width="343" height="141"/>
                                 <subviews>
@@ -72,36 +58,30 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="tappedLogin" destination="4RE-3U-07U" eventType="touchUpInside" id="6Et-rB-5ou"/>
+                                            <action selector="login" destination="4RE-3U-07U" eventType="touchUpInside" id="e5k-fS-0pu"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sample firebase app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDN-6G-aRD">
-                                <rect key="frame" x="38" y="60" width="299.5" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firechat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDN-6G-aRD">
+                                <rect key="frame" x="128" y="60" width="120.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.792156862745098" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SOS-ry-ubB" firstAttribute="centerY" secondItem="0g4-zI-04K" secondAttribute="centerY" constant="-60" id="6aH-Vz-2vk"/>
-                            <constraint firstItem="9kY-O3-7q8" firstAttribute="centerX" secondItem="0g4-zI-04K" secondAttribute="centerX" id="Jpz-ho-0nS"/>
-                            <constraint firstItem="ce4-kS-35x" firstAttribute="top" secondItem="9kY-O3-7q8" secondAttribute="bottom" constant="20" id="KZa-B7-fxM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SOS-ry-ubB" secondAttribute="trailing" id="YNy-79-CMd"/>
                             <constraint firstItem="MDN-6G-aRD" firstAttribute="centerX" secondItem="0g4-zI-04K" secondAttribute="centerX" id="cgj-qh-l02"/>
-                            <constraint firstItem="IwO-T9-9zj" firstAttribute="centerX" secondItem="9kY-O3-7q8" secondAttribute="centerX" id="j8S-7Y-D7i"/>
                             <constraint firstAttribute="leadingMargin" secondItem="SOS-ry-ubB" secondAttribute="leading" id="ncY-ey-eWs"/>
                             <constraint firstItem="MDN-6G-aRD" firstAttribute="top" secondItem="koL-SO-gYZ" secondAttribute="bottom" constant="40" id="qph-8R-Uu1"/>
-                            <constraint firstItem="9kY-O3-7q8" firstAttribute="top" secondItem="IwO-T9-9zj" secondAttribute="bottom" constant="-6" id="vYX-SN-gUN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="vlW-ND-qQe" id="bez-E6-Bzm"/>
-                        <outlet property="errorLabel" destination="8e5-Gh-o1j" id="ztv-Fl-Wdi"/>
-                        <outlet property="loginButton" destination="sIh-VO-D0y" id="Pcd-HF-D9P"/>
-                        <outlet property="passwordTextField" destination="08r-ux-8F1" id="iTb-Av-B6c"/>
+                        <outlet property="emailTextField" destination="vlW-ND-qQe" id="JIF-1t-Tyu"/>
+                        <outlet property="passwordTextField" destination="08r-ux-8F1" id="MRn-WZ-h9d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvd-9s-T4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,7 +89,4 @@
             <point key="canvasLocation" x="37.600000000000001" y="224.4377811094453"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="firebase" width="800" height="153"/>
-    </resources>
 </document>
