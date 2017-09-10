@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8AF6EED3FFD40FD5D2CBD9AB /* Pods_Firechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C4B1BA435B56D650ACBB5D /* Pods_Firechat.framework */; };
+		E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB71F65D39C0023A906 /* MessagingViewController.swift */; };
+		E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */; };
+		E236EDBD1F65D5B10023A906 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E236EDBC1F65D4F50023A906 /* GoogleService-Info.plist */; };
+		E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */; };
 		E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */; };
 		E2D2EC7A1F65CE5E006AB75E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2EC791F65CE5E006AB75E /* ViewController.swift */; };
 		E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D2EC7B1F65CE5E006AB75E /* Main.storyboard */; };
@@ -19,7 +23,12 @@
 		20C4B1BA435B56D650ACBB5D /* Pods_Firechat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Firechat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BED9D1E9F3649CFDF37815 /* Pods-Firechat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firechat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Firechat/Pods-Firechat.debug.xcconfig"; sourceTree = "<group>"; };
 		B408E073EBD06FDAFACB6811 /* Pods-Firechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Firechat/Pods-Firechat.release.xcconfig"; sourceTree = "<group>"; };
-		E26852B51F65D04600B3F3AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E236EDB71F65D39C0023A906 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
+		E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		E236EDBC1F65D4F50023A906 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E26852BA1F65D2BA00B3F3AB /* Firechat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firechat-Bridging-Header.h"; sourceTree = "<group>"; };
+		E26852BB1F65D2BB00B3F3AB /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		E2D2EC741F65CE5E006AB75E /* Firechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2D2EC791F65CE5E006AB75E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +59,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E26852B61F65D1F000B3F3AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E236EDB71F65D39C0023A906 /* MessagingViewController.swift */,
+				E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E26852B71F65D20000B3F3AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E26852B81F65D20600B3F3AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E26852B91F65D20A00B3F3AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E26852BB1F65D2BB00B3F3AB /* SWRevealViewController.h */,
+				E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */,
+				E26852BA1F65D2BA00B3F3AB /* Firechat-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E2D2EC6B1F65CE5E006AB75E = {
 			isa = PBXGroup;
 			children = (
@@ -71,12 +113,16 @@
 		E2D2EC761F65CE5E006AB75E /* Firechat */ = {
 			isa = PBXGroup;
 			children = (
+				E26852B91F65D20A00B3F3AB /* Supporting Files */,
+				E26852B71F65D20000B3F3AB /* Model */,
+				E26852B81F65D20600B3F3AB /* View */,
+				E26852B61F65D1F000B3F3AB /* Controller */,
 				E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */,
 				E2D2EC791F65CE5E006AB75E /* ViewController.swift */,
 				E2D2EC7B1F65CE5E006AB75E /* Main.storyboard */,
 				E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */,
 				E2D2EC801F65CE5E006AB75E /* LaunchScreen.storyboard */,
-				E26852B51F65D04600B3F3AB /* GoogleService-Info.plist */,
+				E236EDBC1F65D4F50023A906 /* GoogleService-Info.plist */,
 				E2D2EC831F65CE5E006AB75E /* Info.plist */,
 			);
 			path = Firechat;
@@ -125,6 +171,7 @@
 				TargetAttributes = {
 					E2D2EC731F65CE5E006AB75E = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -153,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D2EC821F65CE5E006AB75E /* LaunchScreen.storyboard in Resources */,
+				E236EDBD1F65D5B10023A906 /* GoogleService-Info.plist in Resources */,
 				E2D2EC7F1F65CE5E006AB75E /* Assets.xcassets in Resources */,
 				E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */,
 			);
@@ -213,8 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
 				E2D2EC7A1F65CE5E006AB75E /* ViewController.swift in Sources */,
+				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
+				E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,13 +403,16 @@
 			baseConfigurationReference = 56BED9D1E9F3649CFDF37815 /* Pods-Firechat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EW7E662B65;
 				INFOPLIST_FILE = Firechat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krevalent.Firechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Firechat/Supporting Files/Firechat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -368,13 +422,15 @@
 			baseConfigurationReference = B408E073EBD06FDAFACB6811 /* Pods-Firechat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EW7E662B65;
 				INFOPLIST_FILE = Firechat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krevalent.Firechat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "Firechat/Supporting Files/Firechat-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
