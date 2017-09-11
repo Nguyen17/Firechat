@@ -39,7 +39,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testing" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08r-ux-8F1">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08r-ux-8F1">
                                         <rect key="frame" x="0.0" y="65" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
@@ -58,7 +58,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="login" destination="4RE-3U-07U" eventType="touchUpInside" id="e5k-fS-0pu"/>
+                                            <action selector="login" destination="4RE-3U-07U" eventType="touchUpInside" id="7Wz-Xh-mj2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -80,8 +80,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="vlW-ND-qQe" id="JIF-1t-Tyu"/>
-                        <outlet property="passwordTextField" destination="08r-ux-8F1" id="MRn-WZ-h9d"/>
+                        <outlet property="emailTextField" destination="vlW-ND-qQe" id="U2x-ot-mzN"/>
+                        <outlet property="errorMessageLabel" destination="8e5-Gh-o1j" id="S23-Mh-awH"/>
+                        <outlet property="passwordTextField" destination="08r-ux-8F1" id="e8y-Kk-zTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvd-9s-T4O" userLabel="First Responder" sceneMemberID="firstResponder"/>

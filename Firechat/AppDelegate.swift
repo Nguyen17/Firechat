@@ -20,10 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let notificationCenter = NotificationCenter.default
+    let firebaseManager = FirebaseManager.instance
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        firebaseManager.logout(completion: {_ in })
         setupNotifcationObservers()
         setupRootVC()
         
