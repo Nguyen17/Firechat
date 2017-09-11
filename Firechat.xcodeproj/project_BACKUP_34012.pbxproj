@@ -11,9 +11,17 @@
 		CA0FB8451F664705004B637B /* AuthErrorCode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */; };
 		CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8461F664750004B637B /* UIView+Extension.swift */; };
 		CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */; };
+<<<<<<< HEAD
+		E222890C1F65F35000C2BBE8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
+		E222890D1F65F35200C2BBE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */; };
+		E222890E1F65F3CA00C2BBE8 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
+		E22289111F65F79500C2BBE8 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */; };
+		E22289131F65F7E300C2BBE8 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289121F65F7E300C2BBE8 /* Channel.swift */; };
+=======
 		CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
 		CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
 		CADE0EB21F65DB1B00177BFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */; };
+>>>>>>> aa0f62ad06931a1cfb640582fd57369af956f532
 		E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB71F65D39C0023A906 /* MessagingViewController.swift */; };
 		E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */; };
 		E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */; };
@@ -73,8 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */,
+<<<<<<< HEAD
+				E22289121F65F7E300C2BBE8 /* Channel.swift */,
+=======
 				CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */,
 				CA0FB8461F664750004B637B /* UIView+Extension.swift */,
+>>>>>>> aa0f62ad06931a1cfb640582fd57369af956f532
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,8 +150,12 @@
 				E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */,
 				E2D2EC801F65CE5E006AB75E /* LaunchScreen.storyboard */,
 				E2D2EC831F65CE5E006AB75E /* Info.plist */,
+<<<<<<< HEAD
+				E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */,
+=======
 				CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */,
 				E26852B91F65D20A00B3F3AB /* Supporting Files */,
+>>>>>>> aa0f62ad06931a1cfb640582fd57369af956f532
 			);
 			path = Firechat;
 			sourceTree = "<group>";
@@ -219,7 +235,11 @@
 				E222890D1F65F35200C2BBE8 /* GoogleService-Info.plist in Resources */,
 				E2D2EC7F1F65CE5E006AB75E /* Assets.xcassets in Resources */,
 				E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */,
+<<<<<<< HEAD
+				E222890E1F65F3CA00C2BBE8 /* Authentication.storyboard in Resources */,
+=======
 				CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */,
+>>>>>>> aa0f62ad06931a1cfb640582fd57369af956f532
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +302,12 @@
 				CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */,
 				CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */,
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
+<<<<<<< HEAD
+				E22289111F65F79500C2BBE8 /* ChannelTableViewCell.swift in Sources */,
+				E2D2EC7A1F65CE5E006AB75E /* ViewController.swift in Sources */,
+				E222890C1F65F35000C2BBE8 /* FirebaseManager.swift in Sources */,
+=======
+>>>>>>> aa0f62ad06931a1cfb640582fd57369af956f532
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
 				CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */,

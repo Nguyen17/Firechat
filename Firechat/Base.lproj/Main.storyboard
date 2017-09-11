@@ -26,7 +26,7 @@
                     </view>
                     <connections>
                         <segue destination="LK9-3G-u7S" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="14R-oh-p0v"/>
-                        <segue destination="wal-lv-LIf" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="uF8-kU-cm3"/>
+                        <segue destination="WX3-1D-6gX" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="RxC-Pb-VTv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -34,36 +34,36 @@
             <point key="canvasLocation" x="46" y="167"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="d36-YK-iJz">
+        <scene sceneID="dnq-9L-Ucd">
             <objects>
-                <navigationController id="wal-lv-LIf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZXK-9S-NXy">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                <navigationController id="WX3-1D-6gX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pKa-cF-B8J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="akP-wt-Njq" kind="relationship" relationship="rootViewController" id="8EU-gQ-zew"/>
+                        <segue destination="akP-wt-Njq" kind="relationship" relationship="rootViewController" id="xmG-4I-4TP"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sUm-4I-Llb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8Y-at-TMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="878"/>
+            <point key="canvasLocation" x="814" y="529"/>
         </scene>
-        <!--Messages-->
+        <!--Goal Setter-->
         <scene sceneID="ZDU-v9-hs9">
             <objects>
                 <viewController id="akP-wt-Njq" customClass="MessagingViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9fM-BZ-R2L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="I5E-cW-oF7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Messages" id="wuQ-Kg-ON7"/>
+                    <navigationItem key="navigationItem" title="Goal Setter" id="uek-ui-NyR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6L-XV-7A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298" y="878"/>
+            <point key="canvasLocation" x="1662" y="528"/>
         </scene>
         <!--Channels View Controller-->
         <scene sceneID="mZA-AO-kGQ">

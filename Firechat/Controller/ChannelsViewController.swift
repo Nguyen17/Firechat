@@ -10,13 +10,13 @@ import UIKit
 
 class ChannelsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var channelsTable: UITableView!
-    
+
     var channelsArray: [String] = ["Channel One", "Channel Two"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-        
+
         channelsTable.dataSource = self
         channelsTable.delegate = self
     }
@@ -24,7 +24,7 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelTableViewCell") as? ChannelTableViewCell {
             if !channelsArray.isEmpty {
