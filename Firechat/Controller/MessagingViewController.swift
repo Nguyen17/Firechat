@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
-class MessagingViewController: UIViewController {
-
+class MessagingViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.senderId = "Fx23wdsw"
+        self.senderDisplayName = "Amanuel"
+        setupViews()
+    }
+    
+    private func setupViews()
+    {
         // allows the swipe reveal
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
         // allows the tap to return
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
