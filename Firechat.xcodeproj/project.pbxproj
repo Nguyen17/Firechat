@@ -118,7 +118,6 @@
 		E2D2EC761F65CE5E006AB75E /* Firechat */ = {
 			isa = PBXGroup;
 			children = (
-				E26852B91F65D20A00B3F3AB /* Supporting Files */,
 				CA6EC3EB1F65E0E600F1B56B /* Model */,
 				E26852B61F65D1F000B3F3AB /* Controller */,
 				E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */,
@@ -128,6 +127,7 @@
 				E2D2EC801F65CE5E006AB75E /* LaunchScreen.storyboard */,
 				E2D2EC831F65CE5E006AB75E /* Info.plist */,
 				CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */,
+				E26852B91F65D20A00B3F3AB /* Supporting Files */,
 			);
 			path = Firechat;
 			sourceTree = "<group>";
