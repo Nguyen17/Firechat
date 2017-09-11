@@ -9,7 +9,11 @@
 /* Begin PBXBuildFile section */
 		8AF6EED3FFD40FD5D2CBD9AB /* Pods_Firechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C4B1BA435B56D650ACBB5D /* Pods_Firechat.framework */; };
 		CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */; };
-		CADE0EB21F65DB1B00177BFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */; };
+		E222890C1F65F35000C2BBE8 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
+		E222890D1F65F35200C2BBE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */; };
+		E222890E1F65F3CA00C2BBE8 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
+		E22289111F65F79500C2BBE8 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */; };
+		E22289131F65F7E300C2BBE8 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289121F65F7E300C2BBE8 /* Channel.swift */; };
 		E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB71F65D39C0023A906 /* MessagingViewController.swift */; };
 		E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */; };
 		E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */; };
@@ -27,7 +31,9 @@
 		CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
-		CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		E22289121F65F7E300C2BBE8 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		E236EDB71F65D39C0023A906 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		E26852BA1F65D2BA00B3F3AB /* Firechat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firechat-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -67,8 +73,18 @@
 			isa = PBXGroup;
 			children = (
 				CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */,
+				E22289121F65F7E300C2BBE8 /* Channel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E222890F1F65F76800C2BBE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */,
+			);
+			name = View;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		E26852B61F65D1F000B3F3AB /* Controller */ = {
@@ -114,6 +130,7 @@
 			children = (
 				E26852B91F65D20A00B3F3AB /* Supporting Files */,
 				CA6EC3EB1F65E0E600F1B56B /* Model */,
+				E222890F1F65F76800C2BBE8 /* View */,
 				E26852B61F65D1F000B3F3AB /* Controller */,
 				E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */,
 				E2D2EC791F65CE5E006AB75E /* ViewController.swift */,
@@ -122,7 +139,7 @@
 				E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */,
 				E2D2EC801F65CE5E006AB75E /* LaunchScreen.storyboard */,
 				E2D2EC831F65CE5E006AB75E /* Info.plist */,
-				CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */,
+				E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */,
 			);
 			path = Firechat;
 			sourceTree = "<group>";
@@ -199,9 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D2EC821F65CE5E006AB75E /* LaunchScreen.storyboard in Resources */,
-				CADE0EB21F65DB1B00177BFB /* GoogleService-Info.plist in Resources */,
+				E222890D1F65F35200C2BBE8 /* GoogleService-Info.plist in Resources */,
 				E2D2EC7F1F65CE5E006AB75E /* Assets.xcassets in Resources */,
 				E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */,
+				E222890E1F65F3CA00C2BBE8 /* Authentication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -261,10 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
+				E22289111F65F79500C2BBE8 /* ChannelTableViewCell.swift in Sources */,
 				E2D2EC7A1F65CE5E006AB75E /* ViewController.swift in Sources */,
+				E222890C1F65F35000C2BBE8 /* FirebaseManager.swift in Sources */,
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
 				CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */,
+				E22289131F65F7E300C2BBE8 /* Channel.swift in Sources */,
 				E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYET37TU46;
+				DEVELOPMENT_TEAM = EW7E662B65;
 				INFOPLIST_FILE = Firechat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krevalent.Firechat;
@@ -424,7 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WYET37TU46;
+				DEVELOPMENT_TEAM = EW7E662B65;
 				INFOPLIST_FILE = Firechat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.krevalent.Firechat;
