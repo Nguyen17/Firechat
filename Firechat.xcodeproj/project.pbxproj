@@ -13,7 +13,9 @@
 		CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */; };
 		CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
 		CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
-		CADE0EB21F65DB1B00177BFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */; };
+		E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */; };
+		E22DF8921F6690FE000323ED /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22DF8911F6690FE000323ED /* Channel.swift */; };
+		E22DF8941F6691A9000323ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E22DF8931F669176000323ED /* GoogleService-Info.plist */; };
 		E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB71F65D39C0023A906 /* MessagingViewController.swift */; };
 		E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */; };
 		E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */; };
@@ -32,9 +34,9 @@
 		CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
-		E222890B1F65F32300C2BBE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
-		E22289121F65F7E300C2BBE8 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		E22DF8911F6690FE000323ED /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		E22DF8931F669176000323ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E236EDB71F65D39C0023A906 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
 		E26852BA1F65D2BA00B3F3AB /* Firechat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firechat-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */,
 				CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */,
 				CA0FB8461F664750004B637B /* UIView+Extension.swift */,
+				E22DF8911F6690FE000323ED /* Channel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,7 +141,7 @@
 				E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */,
 				E2D2EC801F65CE5E006AB75E /* LaunchScreen.storyboard */,
 				E2D2EC831F65CE5E006AB75E /* Info.plist */,
-				CADE0EB11F65DB1B00177BFB /* GoogleService-Info.plist */,
+				E22DF8931F669176000323ED /* GoogleService-Info.plist */,
 				E26852B91F65D20A00B3F3AB /* Supporting Files */,
 			);
 			path = Firechat;
@@ -216,8 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2D2EC821F65CE5E006AB75E /* LaunchScreen.storyboard in Resources */,
-				E222890D1F65F35200C2BBE8 /* GoogleService-Info.plist in Resources */,
 				E2D2EC7F1F65CE5E006AB75E /* Assets.xcassets in Resources */,
+				E22DF8941F6691A9000323ED /* GoogleService-Info.plist in Resources */,
 				E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */,
 				CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */,
 			);
@@ -279,13 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA0FB8451F664705004B637B /* AuthErrorCode+Extension.swift in Sources */,
+				E22DF8921F6690FE000323ED /* Channel.swift in Sources */,
 				CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */,
 				CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */,
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
+				E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
 				CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */,
-				E22289131F65F7E300C2BBE8 /* Channel.swift in Sources */,
 				E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
