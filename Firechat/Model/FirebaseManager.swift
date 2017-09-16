@@ -45,4 +45,23 @@ class FirebaseManager {
             completion(FirebaseLogoutError.unableToSignOut)
         }
     }
+
+    func updateChannel(channelArray: [String]) {
+        self.ref.child("channels").setValue(channelArray)
+    }
+
+    func fetchChannels(completion: (([String]?, Error?) -> Void)?)
+    {
+        ref.child("channels").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let channel = snapshot.value as? [String] {
+                if let completion = completion {
+                    completion(channel, nil)
+                }
+            }
+        }) { (error) in
+            if let completion = completion {
+                completion(nil, error)
+            }
+        }
+    }
 }
