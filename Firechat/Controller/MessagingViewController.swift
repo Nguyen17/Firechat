@@ -10,6 +10,9 @@ import UIKit
 import JSQMessagesViewController
 
 class MessagingViewController: JSQMessagesViewController {
+    var channelName: String!
+    let notificationCenter = NotificationCenter.default
+    
     var messages = [JSQMessage(senderId: "Amanuel", displayName: "Amanuel", text: "What's up bro?"),
                     JSQMessage(senderId: "Josh", displayName: "Josh", text: "Nothing much just coding")]
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
@@ -20,6 +23,7 @@ class MessagingViewController: JSQMessagesViewController {
         super.viewDidLoad()
         self.senderId = "Josh"
         self.senderDisplayName = "Josh"
+        addObservers()
         setupViews()
     }
 
@@ -31,6 +35,20 @@ class MessagingViewController: JSQMessagesViewController {
         return messages.count
     }
 
+    private func addObservers() {
+        notificationCenter.addObserver(self, selector: #selector(updateMessages(_:)), name: .channelChanged, object: nil)
+    }
+    
+    @objc private func updateMessages(_ notification: Notification) {
+        guard let channelDictionary = notification.userInfo as? [String: String] else { return }
+        
+        if let channelName = channelDictionary["channelName"]
+        {
+            navigationItem.title = channelName
+//            firebaseManager.getMessagesFor(channelName)
+        }
+    }
+    
     private func setupViews()
     {
         // allows the swipe reveal

@@ -15,7 +15,7 @@ class AuthenticationViewController: UIViewController
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    private var firebaseManager = FirebaseManager()
+    private var firebaseManager = FirebaseManager.instance
     private let notificationCenter = NotificationCenter.default
     
     var validInput: Bool

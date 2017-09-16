@@ -13,6 +13,8 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var channelsTable: UITableView!
 
     var channelsArray: [String] = []
+    let notficationCenter = NotificationCenter.default
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(error.debugDescription)
             }
         }
+        
+        notficationCenter.post(name: .channelChanged, object: nil, userInfo: ["channelName": "Welcome"])
         
         channelsTable.dataSource = self
         channelsTable.delegate = self
@@ -56,5 +60,10 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             return ChannelTableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        notficationCenter.post(name: .channelChanged, object: nil, userInfo: ["channelName": channelsArray[indexPath.row]])
+        
     }
 }

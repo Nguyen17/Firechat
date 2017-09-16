@@ -15,10 +15,9 @@ enum FirebaseLogoutError {
 }
 
 class FirebaseManager {
-    
     static let instance = FirebaseManager()
     let notificationCenter = NotificationCenter.default
-
+    
     private var ref: DatabaseReference {
         return Database.database().reference()
     }

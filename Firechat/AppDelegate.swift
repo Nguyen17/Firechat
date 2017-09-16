@@ -13,6 +13,7 @@ import FirebaseAuth
 extension NSNotification.Name
 {
     static let authStatusChanged = NSNotification.Name("AuthStatusChanged")
+    static let channelChanged = NSNotification.Name("ChannelChanged")
 }
 
 @UIApplicationMain
@@ -41,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let _ = Auth.auth().currentUser {
             let revealVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController() as! SWRevealViewController
-            
             rootVC = revealVC
         } else {
             let authenticationVC = UIStoryboard.init(name: "Authentication", bundle: nil).instantiateInitialViewController()
