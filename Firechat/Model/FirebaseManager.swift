@@ -68,5 +68,25 @@ class FirebaseManager {
     func updateChannels(channelArray: [String]) {
         self.ref.child(FirebaseNodes.channels).setValue(channelArray)
     }
+    
+    // MARK: - Fetching and updating messages
+    
+    func postMessage(channelName: String, senderName: String, message: String, date: String) {
+        ref.child("messages/\(channelName)/").observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
+            let message = ["sender": senderName, "message": message, "timeStamp": date] as [String : Any]
+            
+            if var channelMessages = snapshot.value as? [[String: Any]] {
+                channelMessages.append(message)
+                self?.ref.child("messages/\(channelName)/").setValue(channelMessages)
+            }
+            else
+            {
+                self?.ref.child("messages/\(channelName)/").setValue([message])
+            }
+        }) { (error) in
+            // Handle error
+        }
+    }
+    
 
 }

@@ -45,7 +45,7 @@ class MessagingViewController: JSQMessagesViewController {
         if let channelName = channelDictionary["channelName"]
         {
             navigationItem.title = channelName
-//            firebaseManager.getMessagesFor(channelName)
+            self.channelName = channelName
         }
     }
     
@@ -94,5 +94,9 @@ class MessagingViewController: JSQMessagesViewController {
             cell.textView?.textColor = UIColor.black
         }
         return cell
+    }
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        firebaseManager.postMessage(channelName: navigationItem.title!, senderName: senderDisplayName, message: text, date: date.description)
     }
 }
