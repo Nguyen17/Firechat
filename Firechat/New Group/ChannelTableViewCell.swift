@@ -9,6 +9,8 @@
 import UIKit
 
 class ChannelTableViewCell: UITableViewCell {
+    
+    static let identifier = "ChannelTableViewCell"
 
     @IBOutlet weak var channelLabel: UILabel!
     

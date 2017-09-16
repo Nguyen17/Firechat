@@ -71,13 +71,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA39BA7C1F6DCB01003B832D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */,
+				CA0FB8461F664750004B637B /* UIView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CA6EC3EB1F65E0E600F1B56B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */,
-				CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */,
-				CA0FB8461F664750004B637B /* UIView+Extension.swift */,
 				E22DF8911F6690FE000323ED /* Channel.swift */,
+				CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */,
+				CA39BA7C1F6DCB01003B832D /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,10 +140,10 @@
 		E2D2EC761F65CE5E006AB75E /* Firechat */ = {
 			isa = PBXGroup;
 			children = (
+				E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */,
 				CA6EC3EB1F65E0E600F1B56B /* Model */,
 				E222890F1F65F76800C2BBE8 /* View */,
 				E26852B61F65D1F000B3F3AB /* Controller */,
-				E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */,
 				CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */,
 				E2D2EC7B1F65CE5E006AB75E /* Main.storyboard */,
 				E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */,

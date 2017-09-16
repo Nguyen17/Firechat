@@ -14,6 +14,10 @@ enum FirebaseLogoutError {
     case unableToSignOut
 }
 
+struct FirebaseNodes {
+    static let channels = "channels"
+}
+
 class FirebaseManager {
     static let instance = FirebaseManager()
     let notificationCenter = NotificationCenter.default
@@ -47,23 +51,22 @@ class FirebaseManager {
         
         notificationCenter.post(name: .authStatusChanged, object: nil)
     }
+    
+    // MARK: - Fetching and updating channels methods
 
-    func updateChannel(channelArray: [String]) {
-        self.ref.child("channels").setValue(channelArray)
-    }
-
-    func fetchChannels(completion: (([String]?, Error?) -> Void)?)
+    func fetchChannels(completion: @escaping (([String]?, Error?) -> Void))
     {
-        ref.child("channels").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child(FirebaseNodes.channels).observeSingleEvent(of: .value, with: { (snapshot) in
             if let channel = snapshot.value as? [String] {
-                if let completion = completion {
-                    completion(channel, nil)
-                }
+                completion(channel, nil)
             }
         }) { (error) in
-            if let completion = completion {
                 completion(nil, error)
-            }
         }
     }
+    
+    func updateChannels(channelArray: [String]) {
+        self.ref.child(FirebaseNodes.channels).setValue(channelArray)
+    }
+
 }
