@@ -57,8 +57,4 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
             return ChannelTableViewCell()
         }
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
-    }
 }

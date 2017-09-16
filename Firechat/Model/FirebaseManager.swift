@@ -17,6 +17,7 @@ enum FirebaseLogoutError {
 class FirebaseManager {
     
     static let instance = FirebaseManager()
+    let notificationCenter = NotificationCenter.default
 
     private var ref: DatabaseReference {
         return Database.database().reference()
@@ -44,6 +45,8 @@ class FirebaseManager {
         catch {
             completion(FirebaseLogoutError.unableToSignOut)
         }
+        
+        notificationCenter.post(name: .authStatusChanged, object: nil)
     }
 
     func updateChannel(channelArray: [String]) {
