@@ -64,6 +64,10 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         notficationCenter.post(name: .channelChanged, object: nil, userInfo: ["channelName": channelsArray[indexPath.row]])
+        if let swRevealController = self.parent as? SWRevealViewController
+        {
+            swRevealController.rightRevealToggle(animated: true)
+        }
         
     }
 }
