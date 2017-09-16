@@ -12,14 +12,14 @@ import UIKit
 class ChannelsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var channelsTable: UITableView!
 
+    var refreshControl: UIRefreshControl!
     var channelsArray: [String] = []
     let notficationCenter = NotificationCenter.default
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-
+        
         FirebaseManager.instance.fetchChannels { (snapshot, error) in
             if error == nil {
                 self.channelsArray = snapshot!
@@ -27,13 +27,28 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(error.debugDescription)
             }
         }
-        
+    
         notficationCenter.post(name: .channelChanged, object: nil, userInfo: ["channelName": "Welcome"])
         
         channelsTable.dataSource = self
         channelsTable.delegate = self
         
-        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
+        channelsTable.addSubview(refreshControl) // not required when using UITableViewController
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        FirebaseManager.instance.fetchChannels { (snapshot, error) in
+            if error != nil {
+                print(error.debugDescription)
+            } else {
+                self.channelsArray = snapshot!
+                self.channelsTable.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -70,4 +85,7 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
     }
+    
+    
+    
 }
