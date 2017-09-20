@@ -8,10 +8,6 @@
 
 import Foundation
 
-class Channel {
-    private(set) var title: String
-    
-    init(title: String) {
-        self.title = title
-    }
+struct Channel {
+    var title: String
 }

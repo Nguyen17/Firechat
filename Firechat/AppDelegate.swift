@@ -37,11 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var rootVC: UIViewController!
         
         if let _ = Auth.auth().currentUser {
-            let revealVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateInitialViewController() as! RevealViewController
+            let revealVC = UIStoryboard.main.instantiateInitialViewController() as! RevealViewController
             
             rootVC = revealVC
         } else {
-            let loginVC = UIStoryboard.init(name: "Authentication", bundle: nil).instantiateInitialViewController() as! LoginViewController
+            let loginVC = UIStoryboard.authentication.instantiateInitialViewController() as! LoginViewController
             
             rootVC = loginVC
         }
