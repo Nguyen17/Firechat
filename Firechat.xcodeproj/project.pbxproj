@@ -10,6 +10,7 @@
 		8AF6EED3FFD40FD5D2CBD9AB /* Pods_Firechat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C4B1BA435B56D650ACBB5D /* Pods_Firechat.framework */; };
 		CA0FB8451F664705004B637B /* AuthErrorCode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */; };
 		CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8461F664750004B637B /* UIView+Extension.swift */; };
+		CA6510CE1F72015F00FD62D9 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */; };
 		CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */; };
 		CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
 		CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
@@ -31,6 +32,7 @@
 		B408E073EBD06FDAFACB6811 /* Pods-Firechat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Firechat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Firechat/Pods-Firechat.release.xcconfig"; sourceTree = "<group>"; };
 		CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+Extension.swift"; sourceTree = "<group>"; };
 		CA0FB8461F664750004B637B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
 		CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		E26852B61F65D1F000B3F3AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */,
 				E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */,
 				E236EDB71F65D39C0023A906 /* MessagingViewController.swift */,
 				CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */,
@@ -294,6 +297,7 @@
 				CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */,
 				CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */,
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
+				CA6510CE1F72015F00FD62D9 /* RevealViewController.swift in Sources */,
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
 				E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
