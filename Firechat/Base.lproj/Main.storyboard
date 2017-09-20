@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="814" y="529"/>
         </scene>
-        <!--Goal Setter-->
+        <!--Messaging View Controller-->
         <scene sceneID="ZDU-v9-hs9">
             <objects>
                 <viewController id="akP-wt-Njq" customClass="MessagingViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,7 +59,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="I5E-cW-oF7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Goal Setter" id="uek-ui-NyR"/>
+                    <navigationItem key="navigationItem" id="uek-ui-NyR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6L-XV-7A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

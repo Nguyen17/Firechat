@@ -27,6 +27,7 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
         channelsTable.dataSource = self
         channelsTable.delegate = self
         revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        
         fetchChannels()
         
         refreshControl = UIRefreshControl()
@@ -36,15 +37,7 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @objc func refresh(sender:AnyObject) {
-        FirebaseManager.instance.fetchChannels { (snapshot, error) in
-            if error != nil {
-                print(error.debugDescription)
-            } else {
-                self.channelsArray = snapshot!
-                self.channelsTable.reloadData()
-                self.refreshControl.endRefreshing()
-            }
-        }
+        fetchChannels()
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -56,11 +49,13 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     private func fetchChannels() {
-        FirebaseManager.instance.fetchChannels { (channels, error) in
-            if error == nil {
-                self.channelsArray = channels!
-            } else {
+        FirebaseManager.instance.fetchChannels { (snapshot, error) in
+            if error != nil {
                 print(error.debugDescription)
+            } else {
+                self.channelsArray = snapshot!
+                self.channelsTable.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -86,8 +81,7 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         notficationCenter.post(name: .channelChanged, object: nil, userInfo: ["channelName": channelsArray[indexPath.row]])
         
-        if let swRevealController = self.parent as? SWRevealViewController
-        {
+        if let swRevealController = self.parent as? SWRevealViewController {
             swRevealController.rightRevealToggle(animated: true)
         }
     }
