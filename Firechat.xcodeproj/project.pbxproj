@@ -11,7 +11,8 @@
 		CA0FB8451F664705004B637B /* AuthErrorCode+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */; };
 		CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0FB8461F664750004B637B /* UIView+Extension.swift */; };
 		CA6510CE1F72015F00FD62D9 /* RevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */; };
-		CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */; };
+		CA6510D41F720CF200FD62D9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6510D31F720CF200FD62D9 /* SignUpViewController.swift */; };
+		CA6EC3E81F65DFD500F1B56B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3E71F65DFD500F1B56B /* LoginViewController.swift */; };
 		CA6EC3F01F65F7B200F1B56B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */; };
 		CA6EC3F11F65F7D100F1B56B /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */; };
 		E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */; };
@@ -33,7 +34,8 @@
 		CA0FB8441F664705004B637B /* AuthErrorCode+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthErrorCode+Extension.swift"; sourceTree = "<group>"; };
 		CA0FB8461F664750004B637B /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealViewController.swift; sourceTree = "<group>"; };
-		CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		CA6510D31F720CF200FD62D9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CA6EC3E71F65DFD500F1B56B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CA6EC3EE1F65E7EE00F1B56B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		CA6EC3EF1F65E7F900F1B56B /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,10 +106,11 @@
 		E26852B61F65D1F000B3F3AB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA6EC3E71F65DFD500F1B56B /* LoginViewController.swift */,
+				CA6510D31F720CF200FD62D9 /* SignUpViewController.swift */,
 				CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */,
 				E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */,
 				E236EDB71F65D39C0023A906 /* MessagingViewController.swift */,
-				CA6EC3E71F65DFD500F1B56B /* AuthenticationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -298,10 +301,11 @@
 				CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */,
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
 				CA6510CE1F72015F00FD62D9 /* RevealViewController.swift in Sources */,
+				CA6510D41F720CF200FD62D9 /* SignUpViewController.swift in Sources */,
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
 				E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
-				CA6EC3E81F65DFD500F1B56B /* AuthenticationViewController.swift in Sources */,
+				CA6EC3E81F65DFD500F1B56B /* LoginViewController.swift in Sources */,
 				E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

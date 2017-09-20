@@ -41,10 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             rootVC = revealVC
         } else {
-            let authenticationVC = UIStoryboard.init(name: "Authentication", bundle: nil).instantiateInitialViewController()
-            rootVC = authenticationVC!
+            let loginVC = UIStoryboard.init(name: "Authentication", bundle: nil).instantiateInitialViewController() as! LoginViewController
+            
+            rootVC = loginVC
         }
         
+        window?.rootViewController?.dismiss(animated: true, completion: nil)
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }

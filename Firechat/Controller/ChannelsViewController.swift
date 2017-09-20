@@ -91,7 +91,4 @@ class ChannelsViewController: UIViewController, UITableViewDataSource, UITableVi
             swRevealController.rightRevealToggle(animated: true)
         }
     }
-    
-    
-    
 }
