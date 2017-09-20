@@ -77,7 +77,7 @@ class MessagingViewController: JSQMessagesViewController {
             }
         }
         
-        self.inputToolbar.contentView.textView.text = ""
+        self.inputToolbar.contentView.textView.text = nil
     }
     
     private func setupViews()
@@ -129,6 +129,6 @@ class MessagingViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         firebaseManager.postMessage(channelName: navigationItem.title!, senderName: senderDisplayName, message: text, date: date.description)
-        self.inputToolbar.contentView.textView.text = ""
+        self.inputToolbar.contentView.textView.text = nil
     }
 }
