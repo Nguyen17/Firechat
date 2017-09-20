@@ -13,20 +13,40 @@ class MessagingViewController: JSQMessagesViewController {
     var channelName: String!
     let notificationCenter = NotificationCenter.default
     
-    var messages = [JSQMessage(senderId: "Amanuel", displayName: "Amanuel", text: "What's up bro?"),
-                    JSQMessage(senderId: "Josh", displayName: "Josh", text: "Nothing much just coding")]
+    var messages: [JSQMessage] = []
+    
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
+    
     let firebaseManager = FirebaseManager.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.senderId = "Josh"
-        self.senderDisplayName = "Josh"
+        let email = firebaseManager.currentUser?.email
+        self.senderId = email!
+        self.senderDisplayName = email!
         addObservers()
         setupViews()
+        navigationItem.title = "Firechat"
+        
+        firebaseManager.createListener { (snapshot) in
+            if let recievedMessages = snapshot[self.navigationItem.title!] as? [[String: Any]] {
+                self.parseMessages(recievedMessages)
+            } else {
+                self.messages = []
+                self.collectionView.reloadData()
+            }
+        }
     }
-
+    
+    private func parseMessages(_ recievedMessages: [[String: Any]]) {
+        self.messages = []
+        for texts in recievedMessages {
+            self.messages.append(JSQMessage(senderId: texts["sender"] as! String, displayName: texts["sender"] as! String, text: texts["message"] as! String))
+        }
+        self.collectionView.reloadData()
+    }
+    
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return messages[indexPath.row]
     }
@@ -47,6 +67,17 @@ class MessagingViewController: JSQMessagesViewController {
             navigationItem.title = channelName
             self.channelName = channelName
         }
+        
+        firebaseManager.fetchMessages { (snapshot) in
+            if let recievedMessages = snapshot[self.navigationItem.title!] as? [[String: Any]] {
+                self.parseMessages(recievedMessages)
+            } else {
+                self.messages = []
+                self.collectionView.reloadData()
+            }
+        }
+        
+        self.inputToolbar.contentView.textView.text = ""
     }
     
     private func setupViews()
@@ -73,7 +104,7 @@ class MessagingViewController: JSQMessagesViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let message = messages[indexPath.row]
 
-        if message?.senderId == self.senderId {
+        if message.senderId == self.senderId {
             return outgoingBubbleImageView
         } else {
             return incomingBubbleImageView
@@ -88,7 +119,7 @@ class MessagingViewController: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
 
-        if message?.senderId == senderId {
+        if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
         } else {
             cell.textView?.textColor = UIColor.black
@@ -98,5 +129,6 @@ class MessagingViewController: JSQMessagesViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         firebaseManager.postMessage(channelName: navigationItem.title!, senderName: senderDisplayName, message: text, date: date.description)
+        self.inputToolbar.contentView.textView.text = ""
     }
 }
