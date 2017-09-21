@@ -51,4 +51,8 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
             showError(label: errorMessageLabel, message: "Invalid input")
         }
     }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

@@ -10,64 +10,85 @@ import UIKit
 import JSQMessagesViewController
 
 class MessagingViewController: JSQMessagesViewController {
-    var channelName: String!
     let notificationCenter = NotificationCenter.default
+    let firebaseManager = FirebaseManager.instance
     
+    var channelName: String!
     var messages: [JSQMessage] = []
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
-    
-    let firebaseManager = FirebaseManager.instance
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Used so that JSQMessagesVC knows who is sending a text
         let email = firebaseManager.currentUser?.email
         self.senderId = email!
         self.senderDisplayName = email!
-        addObservers()
-        setupViews()
+
+        // Used as a default Channel
         navigationItem.title = "Firechat"
         
+        addObservers()
+        setupViews()
+    }
+    
+    private func setupViews()
+    {
+        // allows swiping to reveal the channelsVC
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        // allows the tap to return
+        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
+        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
+    }
+    
+    
+    private func addObservers() {
+        // Checks if a different channel has been selected
+        notificationCenter.addObserver(self, selector: #selector(updateMessages(_:)), name: .channelChanged, object: nil)
+        
+        // Checks if there has been a change in the messages child on the data base
         firebaseManager.createListener { (snapshot) in
             if let recievedMessages = snapshot[self.navigationItem.title!] as? [[String: Any]] {
+                // Handle the recieved messages
                 self.parseMessages(recievedMessages)
             } else {
+                // Empty array if no messages recieved
                 self.messages = []
                 self.collectionView.reloadData()
             }
         }
     }
     
+    // Function to take recieved data and place them into the JSQMessagesVC
     private func parseMessages(_ recievedMessages: [[String: Any]]) {
+        // Empty's the messages
         self.messages = []
+        
+        // Adds each message into the array
         for texts in recievedMessages {
             self.messages.append(JSQMessage(senderId: texts["sender"] as! String, displayName: texts["sender"] as! String, text: texts["message"] as! String))
         }
+        
+        // Reloads entire view with the recieved messages
         self.collectionView.reloadData()
     }
     
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return messages[indexPath.row]
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
-    }
-
-    private func addObservers() {
-        notificationCenter.addObserver(self, selector: #selector(updateMessages(_:)), name: .channelChanged, object: nil)
-    }
-    
+    // Updates the view controlled when a new channel is selected
     @objc private func updateMessages(_ notification: Notification) {
         guard let channelDictionary = notification.userInfo as? [String: String] else { return }
         
+        // Checks for the new channel name
         if let channelName = channelDictionary["channelName"]
         {
             navigationItem.title = channelName
             self.channelName = channelName
         }
         
+        // Requests for the new messages in a specific channel
         firebaseManager.fetchMessages { (snapshot) in
             if let recievedMessages = snapshot[self.navigationItem.title!] as? [[String: Any]] {
                 self.parseMessages(recievedMessages)
@@ -77,56 +98,11 @@ class MessagingViewController: JSQMessagesViewController {
             }
         }
         
+        // Empty's the text field when a new channel is selected
         self.inputToolbar.contentView.textView.text = nil
     }
     
-    private func setupViews()
-    {
-        // allows the swipe reveal
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        // allows the tap to return
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-
-        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
-        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
-    }
-
-    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
-        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
-    }
-
-    private func setupIncomingBubble() -> JSQMessagesBubbleImage {
-        let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
-    }
-
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = messages[indexPath.row]
-
-        if message.senderId == self.senderId {
-            return outgoingBubbleImageView
-        } else {
-            return incomingBubbleImageView
-        }
-    }
-
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
-        let message = messages[indexPath.item]
-
-        if message.senderId == senderId {
-            cell.textView?.textColor = UIColor.white
-        } else {
-            cell.textView?.textColor = UIColor.black
-        }
-        return cell
-    }
-    
+    // Posts a message when the send button is pressed
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         firebaseManager.postMessage(channelName: navigationItem.title!, senderName: senderDisplayName, message: text, date: date.description)
         self.inputToolbar.contentView.textView.text = nil

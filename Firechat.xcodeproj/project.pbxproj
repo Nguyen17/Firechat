@@ -23,6 +23,9 @@
 		E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB71F65D39C0023A906 /* MessagingViewController.swift */; };
 		E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */; };
 		E26852BD1F65D2EC00B3F3AB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */; };
+		E26BD99C1F745FB3003A5BED /* MessagingViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26BD99B1F745FB3003A5BED /* MessagingViewControllerExtension.swift */; };
+		E26BD99E1F7463AF003A5BED /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26BD99D1F7463AF003A5BED /* GradientView.swift */; };
+		E26BD9A01F74644E003A5BED /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26BD99F1F74644E003A5BED /* RoundedButton.swift */; };
 		E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */; };
 		E2D2EC7D1F65CE5E006AB75E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2D2EC7B1F65CE5E006AB75E /* Main.storyboard */; };
 		E2D2EC7F1F65CE5E006AB75E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2D2EC7E1F65CE5E006AB75E /* Assets.xcassets */; };
@@ -50,6 +53,9 @@
 		E26852BA1F65D2BA00B3F3AB /* Firechat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Firechat-Bridging-Header.h"; sourceTree = "<group>"; };
 		E26852BB1F65D2BB00B3F3AB /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E26852BC1F65D2BB00B3F3AB /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E26BD99B1F745FB3003A5BED /* MessagingViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewControllerExtension.swift; sourceTree = "<group>"; };
+		E26BD99D1F7463AF003A5BED /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		E26BD99F1F74644E003A5BED /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E2D2EC741F65CE5E006AB75E /* Firechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Firechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D2EC771F65CE5E006AB75E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2D2EC7C1F65CE5E006AB75E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				E22289101F65F79500C2BBE8 /* ChannelTableViewCell.swift */,
+				E26BD99D1F7463AF003A5BED /* GradientView.swift */,
+				E26BD99F1F74644E003A5BED /* RoundedButton.swift */,
 			);
 			name = View;
 			path = "New Group";
@@ -117,6 +125,7 @@
 				CA6510CD1F72015F00FD62D9 /* RevealViewController.swift */,
 				E236EDB91F65D3AD0023A906 /* ChannelsViewController.swift */,
 				E236EDB71F65D39C0023A906 /* MessagingViewController.swift */,
+				E26BD99B1F745FB3003A5BED /* MessagingViewControllerExtension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,9 +316,12 @@
 				CA0FB8471F664750004B637B /* UIView+Extension.swift in Sources */,
 				E236EDBA1F65D3AD0023A906 /* ChannelsViewController.swift in Sources */,
 				CA6510CE1F72015F00FD62D9 /* RevealViewController.swift in Sources */,
+				E26BD99E1F7463AF003A5BED /* GradientView.swift in Sources */,
 				CA66E37E1F72226600E4AF48 /* UIStoryboard+Extension.swift in Sources */,
 				CA6510D41F720CF200FD62D9 /* SignUpViewController.swift in Sources */,
+				E26BD99C1F745FB3003A5BED /* MessagingViewControllerExtension.swift in Sources */,
 				E236EDB81F65D39C0023A906 /* MessagingViewController.swift in Sources */,
+				E26BD9A01F74644E003A5BED /* RoundedButton.swift in Sources */,
 				E22DF8901F6690CF000323ED /* ChannelTableViewCell.swift in Sources */,
 				CA66E37C1F7221FD00E4AF48 /* Message.swift in Sources */,
 				E2D2EC781F65CE5E006AB75E /* AppDelegate.swift in Sources */,
