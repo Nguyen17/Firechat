@@ -12,6 +12,14 @@ import FirebaseAuth
 protocol AuthenticationInputValidator { }
 
 extension AuthenticationInputValidator {
+    func validInput(_ userName: String, _ email: String, _ password: String, _ color: UIColor?) -> Bool {
+        if email.isEmpty || password.isEmpty || userName.isEmpty || color == nil {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func validInput(_ userName: String, _ email: String, _ password: String) -> Bool {
         if email.isEmpty || password.isEmpty || userName.isEmpty {
             return false

@@ -9,15 +9,35 @@
 import UIKit
 import FirebaseAuth
 
+public func == (lhs: [CGFloat], rhs: [CGFloat]) -> Bool
+{
+    guard lhs.count == rhs.count else { return false }
+    var i = 0
+    while i < lhs.count {
+        let lhsCGFloat = lhs[i]
+        let rhsCGFloat = rhs[i]
+        
+        if lhsCGFloat != rhsCGFloat
+        {
+            return false
+        }
+        i = i + 1
+    }
+    
+    return true
+}
+
 class SignUpViewController: UIViewController, AuthenticationInputValidator {
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var colorsStackView: UIStackView!
     
     let firebaseManager = FirebaseManager()
     let notificationCenter = NotificationCenter.default
+    var colorPick: UIColor?
     
     
     override func viewDidLoad() {
@@ -27,6 +47,39 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     
     private func setupViews() {
         errorMessageLabel.alpha = 0
+        colorsStackView.subviews.forEach { (colorView) in
+            colorView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(pickColor(_:))))
+            colorView.layer.shadowRadius = 5
+            colorView.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            colorView.layer.shadowOpacity = 1
+            colorView.layer.shadowOffset = CGSize(width: 1, height: 1)
+            
+        }
+    }
+    
+    @objc private func pickColor(_ recognizer: UITapGestureRecognizer)
+    {
+        guard let associatedView = recognizer.view else { return }
+        
+        colorPick = associatedView.backgroundColor
+        unhighlightColors()
+    }
+    
+    private func unhighlightColors()
+    {
+        colorsStackView.subviews.forEach { (colorView) in
+            guard let colorViewComponents = colorView.backgroundColor?.cgColor.components else { return }
+            guard let pickedColorComponents = colorPick?.cgColor.components else { return }
+            
+            if !(colorViewComponents == pickedColorComponents)
+            {
+                colorView.alpha = 0.2
+            }
+            else
+            {
+                colorView.alpha = 1
+            }
+        }
     }
     
     @IBAction func signup() {
@@ -35,9 +88,9 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
         let password = passwordTextField.text ?? ""
     
         
-        if validInput(userName, email, password)
+        if validInput(userName, email, password, colorPick)
         {
-            firebaseManager.signup(userName: userName, email: email, password: password) { [weak self] (user, error) in
+            firebaseManager.signup(userName: userName, email: email, password: password, color: colorPick!) { [weak self] (user, error) in
                 if let error = error, let authError = AuthErrorCode(rawValue: error._code)
                 {
                     guard let errorMessageLabel = self?.errorMessageLabel else { return }
