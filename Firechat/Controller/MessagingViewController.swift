@@ -31,19 +31,12 @@ class MessagingViewController: JSQMessagesViewController {
     
     private func setupViews()
     {
-        // allows swiping to reveal the channelsVC
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        // allows the tap to return
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-    
         // Used so that JSQMessagesVC knows who is sending a text
         self.senderId = firebaseManager.currentUser?.uid
         self.senderDisplayName = firebaseManager.currentUser?.email
         
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
-    
-        
     }
     
     

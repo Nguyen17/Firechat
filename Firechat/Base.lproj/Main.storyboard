@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
         </array>
     </customFonts>
     <scenes>
@@ -26,45 +27,64 @@
                     </view>
                     <connections>
                         <segue destination="LK9-3G-u7S" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="14R-oh-p0v"/>
-                        <segue destination="WX3-1D-6gX" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="RxC-Pb-VTv"/>
+                        <segue destination="NXj-gn-Efj" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="a9O-1R-Q3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46" y="167"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dnq-9L-Ucd">
+        <!--Messages Container View Controller-->
+        <scene sceneID="HG2-h4-Z0M">
             <objects>
-                <navigationController id="WX3-1D-6gX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pKa-cF-B8J">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.992803514" green="0.82187879090000004" blue="0.2012539804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="akP-wt-Njq" kind="relationship" relationship="rootViewController" id="xmG-4I-4TP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a8Y-at-TMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="814" y="529"/>
-        </scene>
-        <!--Messaging View Controller-->
-        <scene sceneID="ZDU-v9-hs9">
-            <objects>
-                <viewController id="akP-wt-Njq" customClass="MessagingViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9fM-BZ-R2L">
+                <viewController id="NXj-gn-Efj" customClass="MessagesContainerViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cUb-x9-oVZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HP-0s-5TN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firechat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S99-DW-5iz">
+                                        <rect key="frame" x="149.5" y="32" width="76" height="28"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.79215686269999996" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="S99-DW-5iz" secondAttribute="bottom" constant="10" id="UAs-ls-hzU"/>
+                                    <constraint firstAttribute="height" constant="70" id="bBc-3c-j8K"/>
+                                    <constraint firstItem="S99-DW-5iz" firstAttribute="centerX" secondItem="7HP-0s-5TN" secondAttribute="centerX" id="enC-oO-6JT"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iP-AP-7uF">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <connections>
+                                    <segue destination="jbd-nC-cRh" kind="embed" id="oGm-1x-iqm"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="I5E-cW-oF7"/>
+                        <constraints>
+                            <constraint firstItem="9iP-AP-7uF" firstAttribute="top" secondItem="7HP-0s-5TN" secondAttribute="bottom" id="2kE-eK-2eP"/>
+                            <constraint firstItem="7HP-0s-5TN" firstAttribute="top" secondItem="cUb-x9-oVZ" secondAttribute="top" id="Bue-Sj-Kgg"/>
+                            <constraint firstItem="7HP-0s-5TN" firstAttribute="leading" secondItem="L74-oW-tbp" secondAttribute="leading" id="alS-O2-W07"/>
+                            <constraint firstItem="9iP-AP-7uF" firstAttribute="trailing" secondItem="L74-oW-tbp" secondAttribute="trailing" id="cEL-7o-7y8"/>
+                            <constraint firstItem="9iP-AP-7uF" firstAttribute="bottom" secondItem="L74-oW-tbp" secondAttribute="bottom" id="ctk-e8-W0M"/>
+                            <constraint firstItem="9iP-AP-7uF" firstAttribute="leading" secondItem="L74-oW-tbp" secondAttribute="leading" id="fqc-mZ-fBO"/>
+                            <constraint firstItem="7HP-0s-5TN" firstAttribute="trailing" secondItem="L74-oW-tbp" secondAttribute="trailing" id="qfd-Pu-MdU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L74-oW-tbp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="uek-ui-NyR"/>
+                    <connections>
+                        <outlet property="channelTitleLabel" destination="S99-DW-5iz" id="5Kh-yF-5tt"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P6L-XV-7A8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isP-kU-4a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="528"/>
+            <point key="canvasLocation" x="813.60000000000002" y="582.45877061469275"/>
         </scene>
         <!--Channels View Controller-->
         <scene sceneID="mZA-AO-kGQ">
@@ -141,6 +161,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Io-ng-2bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1565" y="-276"/>
+        </scene>
+        <!--Messaging View Controller-->
+        <scene sceneID="MRO-wd-3se">
+            <objects>
+                <viewController id="jbd-nC-cRh" customClass="MessagingViewController" customModule="Firechat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="APm-3X-Paf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uVb-7j-EGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1649" y="582"/>
         </scene>
     </scenes>
 </document>
