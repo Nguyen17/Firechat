@@ -21,12 +21,7 @@ class MessagingViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Used so that JSQMessagesVC knows who is sending a text
-        let email = firebaseManager.currentUser?.email
-        self.senderId = email!
-        self.senderDisplayName = email!
-
+    
         // Used as a default Channel
         navigationItem.title = "Firechat"
         
@@ -40,9 +35,15 @@ class MessagingViewController: JSQMessagesViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         // allows the tap to return
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+    
+        // Used so that JSQMessagesVC knows who is sending a text
+        self.senderId = firebaseManager.currentUser?.uid
+        self.senderDisplayName = firebaseManager.currentUser?.email
         
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
+    
+        
     }
     
     
@@ -104,7 +105,8 @@ class MessagingViewController: JSQMessagesViewController {
     
     // Posts a message when the send button is pressed
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        firebaseManager.postMessage(channelName: navigationItem.title!, senderName: senderDisplayName, message: text, date: date.description)
+        guard let uid = firebaseManager.currentUser?.uid else {return}
+        firebaseManager.postMessage(channelName: navigationItem.title!, senderID: uid, message: text, date: date.description)
         self.inputToolbar.contentView.textView.text = nil
     }
 }

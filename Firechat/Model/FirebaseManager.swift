@@ -83,9 +83,9 @@ class FirebaseManager {
     
     // MARK: - Fetching and updating messages
     
-    func postMessage(channelName: String, senderName: String, message: String, date: String) {
+    func postMessage(channelName: String, senderID: String, message: String, date: String) {
         ref.child("messages/\(channelName)/").observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
-            let message = ["sender": senderName, "message": message, "timeStamp": date] as [String : Any]
+            let message = ["sender": senderID, "message": message, "timeStamp": date] as [String : Any]
             
             if var channelMessages = snapshot.value as? [[String: Any]] {
                 channelMessages.append(message)
