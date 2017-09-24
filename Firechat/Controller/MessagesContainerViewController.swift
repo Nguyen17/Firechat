@@ -10,6 +10,7 @@ import UIKit
 
 class MessagesContainerViewController: UIViewController {
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var channelTitleLabel: UILabel!
     
     let notificationCenter = NotificationCenter.default
