@@ -12,6 +12,7 @@ import FirebaseAuth
 class SignUpViewController: UIViewController, AuthenticationInputValidator {
     
     @IBOutlet weak var errorMessageLabel: UILabel!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -29,12 +30,14 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     }
     
     @IBAction func signup() {
+        let userName = usernameTextField.text ?? ""
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
+    
         
-        if validInput(email, password)
+        if validInput(userName, email, password)
         {
-            firebaseManager.signup(email: email, password: password) { [weak self] (user, error) in
+            firebaseManager.signup(userName: userName, email: email, password: password) { [weak self] (user, error) in
                 if let error = error, let authError = AuthErrorCode(rawValue: error._code)
                 {
                     guard let errorMessageLabel = self?.errorMessageLabel else { return }

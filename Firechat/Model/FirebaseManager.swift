@@ -40,10 +40,15 @@ class FirebaseManager {
         }
     }
     
-    func signup(email: String, password: String, completion: ((User?, Error?) -> Void)?) {
+    func signup(userName: String, email: String, password: String, completion: ((User?, Error?) -> Void)?) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let completion = completion else { return }
             completion(user, error)
+            guard let user = user else {return}
+            if error == nil {
+                let userData = ["provider": user.providerID, "email": user.email, "name": userName]
+                self.postUserInfo(uid: user.uid, userData: userData)
+            }
         }
     }
     
@@ -93,6 +98,10 @@ class FirebaseManager {
         }) { (error) in
             // Handle error
         }
+    }
+    
+    func postUserInfo(uid: String, userData: Dictionary<String, Any>) {
+        Database.database().reference().child("users").child(uid).updateChildValues(userData)
     }
     
     func fetchMessages(completion: @escaping (([String: Any]) -> Void)) {

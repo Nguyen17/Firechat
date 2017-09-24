@@ -12,8 +12,8 @@ import FirebaseAuth
 protocol AuthenticationInputValidator { }
 
 extension AuthenticationInputValidator {
-    func validInput(_ email: String, _ password: String) -> Bool {
-        if email.isEmpty || password.isEmpty {
+    func validInput(_ userName: String, _ email: String, _ password: String) -> Bool {
+        if email.isEmpty || password.isEmpty || userName.isEmpty {
             return false
         } else {
             return true
@@ -53,11 +53,12 @@ class LoginViewController: UIViewController, AuthenticationInputValidator {
     
     @IBAction func login()
     {
+        let userName = "bypass"
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
         
-        if validInput(email, password)
+        if validInput(userName, email, password)
         {
             firebaseManager.login(email: email, password: password) { [weak self] (user, error) in
                 if let error = error, let authError = AuthErrorCode(rawValue: error._code)
