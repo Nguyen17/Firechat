@@ -12,6 +12,8 @@ import UIKit
 class ChannelsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var channelsTable: UITableView!
 
+    
+    
     var refreshControl: UIRefreshControl!
     var channelsArray: [String] = []
     

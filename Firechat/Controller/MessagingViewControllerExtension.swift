@@ -29,7 +29,10 @@ extension MessagingViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        let message = messages[indexPath.row]
+        let uid = message.senderId
+        // if breaks, it breaks here
+        return getAvatar(uid: uid!)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

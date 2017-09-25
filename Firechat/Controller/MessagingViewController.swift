@@ -8,13 +8,58 @@
 
 import UIKit
 import JSQMessagesViewController
+extension String {
+    public var first: String {
+        return String(self[startIndex])
+    }
+}
 
-class MessagingViewController: JSQMessagesViewController {
+class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageDataSource  {
+    var initialsForMessage: String = "A"
+    
+    func avatarImage() -> UIImage! {
+        return getAvatar(uid: nil).avatarImage
+    }
+    
+    func avatarHighlightedImage() -> UIImage! {
+        return getAvatar(uid: nil).avatarHighlightedImage
+    }
+    
+    func avatarPlaceholderImage() -> UIImage! {
+        
+        return getAvatar(uid: nil).avatarPlaceholderImage
+    }
+    
+    func getAvatar(uid: String?) -> JSQMessagesAvatarImage {
+        
+        return JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: getInitials(uid: uid), backgroundColor: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), font: UIFont.boldSystemFont(ofSize: 25), diameter: 30)
+    }
+    
+    func getInitials(uid: String?) -> String {
+        var initials = "A"
+        if uid == nil {
+            return initials
+        } else {
+            for user in usersArray {
+                if let tempCheckUIDCheck = user["uid"] as? String {
+                    if tempCheckUIDCheck == uid {
+                        if let theName = user["name"] as? String {
+                            initials = theName.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.characters.first!)") + "\($1.characters.first!)" }
+                        }
+                    }
+                }
+            }
+        }
+        return initials
+    }
+    
     let notificationCenter = NotificationCenter.default
     let firebaseManager = FirebaseManager.instance
     
     var channelName: String!
     var messages: [JSQMessage] = []
+    var usersArray: [[String: Any]] = []
+    
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
@@ -25,8 +70,13 @@ class MessagingViewController: JSQMessagesViewController {
         // Used as a default Channel
         navigationItem.title = "Firechat"
         
+        firebaseManager.fetchUsers { (userInfo) in
+            self.usersArray = userInfo
+        }
+        
         addObservers()
         setupViews()
+        
     }
     
     private func setupViews()
@@ -40,10 +90,8 @@ class MessagingViewController: JSQMessagesViewController {
         self.senderId = firebaseManager.currentUser?.uid
         self.senderDisplayName = firebaseManager.currentUser?.email
         
-        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
-        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
-    
-        
+//        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize()
+//        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize()
     }
     
     
@@ -102,6 +150,7 @@ class MessagingViewController: JSQMessagesViewController {
         // Empty's the text field when a new channel is selected
         self.inputToolbar.contentView.textView.text = nil
     }
+    
     
     // Posts a message when the send button is pressed
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
