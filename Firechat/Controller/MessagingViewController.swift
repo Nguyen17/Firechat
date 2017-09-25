@@ -32,7 +32,23 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
     
     func getAvatar(uid: String?) -> JSQMessagesAvatarImage {
         
-        return JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: getInitials(uid: uid), backgroundColor: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), font: UIFont.boldSystemFont(ofSize: 25), diameter: 30)
+        return JSQMessagesAvatarImageFactory.avatarImage(withUserInitials: getInitials(uid: uid), backgroundColor: getColor(uid: uid), textColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), font: UIFont.boldSystemFont(ofSize: 20), diameter: 30)
+    }
+    
+    func getColor(uid: String?) -> UIColor {
+        var color = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        if uid != nil {
+            if let user = usersDictionary[uid!] as? [String: Any]{
+                if let colorComponents = user["color"] as? [CGFloat] {
+                    let red = colorComponents[0]
+                    let green = colorComponents[1]
+                    let blue = colorComponents[2]
+                    
+                    color = UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
+                }
+            }
+        }
+        return color
     }
     
     func getInitials(uid: String?) -> String {
@@ -44,7 +60,7 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
                 }
             }
         }
-        return initials
+        return initials.uppercased()
     }
     
     let notificationCenter = NotificationCenter.default
