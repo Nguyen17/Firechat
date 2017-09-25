@@ -50,8 +50,9 @@ class FirebaseManager {
             let red = components[0]
             let green = components[1]
             let blue = components[2]
+  
             if error == nil {
-                let userData = ["provider": user.providerID, "email": user.email, "name": userName, "color": [red, green, blue]] as [String : Any]
+                let userData = ["provider": user.providerID, "email": user.email!, "name": userName, "color": [red, green, blue]] as [String : Any]
                 self.postUserInfo(uid: user.uid, userData: userData)
             }
         }
@@ -117,9 +118,10 @@ class FirebaseManager {
         }
     }
     
-    func fetchUsers(completion: @escaping (([[String: Any]]) -> Void)) {
+    func fetchUsers(completion: @escaping (([String: Any]) -> Void)) {
         ref.child("users").observeSingleEvent(of: .value) { (snapshot) in
-            if let users = snapshot.value as? [[String: Any]] {
+            if let users = snapshot.value as? [String: Any] {
+            print("We in business")
             completion(users)
             }
         }

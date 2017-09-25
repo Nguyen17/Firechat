@@ -37,16 +37,10 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
     
     func getInitials(uid: String?) -> String {
         var initials = "A"
-        if uid == nil {
-            return initials
-        } else {
-            for user in usersArray {
-                if let tempCheckUIDCheck = user["uid"] as? String {
-                    if tempCheckUIDCheck == uid {
-                        if let theName = user["name"] as? String {
-                            initials = theName.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.characters.first!)") + "\($1.characters.first!)" }
-                        }
-                    }
+        if uid != nil {
+            if let user = usersDictionary[uid!] as? [String: Any]{
+                if let userName = user["name"] as? String {
+                    initials = userName.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.characters.first!)") + "\($1.characters.first!)" }
                 }
             }
         }
@@ -58,7 +52,7 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
     
     var channelName: String!
     var messages: [JSQMessage] = []
-    var usersArray: [[String: Any]] = []
+    var usersDictionary: Dictionary<String, Any> = [:]
     
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
@@ -71,7 +65,7 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
         navigationItem.title = "Firechat"
         
         firebaseManager.fetchUsers { (userInfo) in
-            self.usersArray = userInfo
+            self.usersDictionary = userInfo
         }
         
         addObservers()
