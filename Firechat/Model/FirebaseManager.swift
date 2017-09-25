@@ -121,7 +121,6 @@ class FirebaseManager {
     func fetchUsers(completion: @escaping (([String: Any]) -> Void)) {
         ref.child("users").observeSingleEvent(of: .value) { (snapshot) in
             if let users = snapshot.value as? [String: Any] {
-            print("We in business")
             completion(users)
             }
         }
@@ -129,6 +128,14 @@ class FirebaseManager {
     // MARK: - Listening for updates
     func createListener(completion: @escaping (([String: Any]) -> Void)) {
         ref.child("messages").observe(.value, with: { (snapshot) in
+            if let messages = snapshot.value as? [String: Any] {
+                completion(messages)
+            }
+        })
+    }
+    
+    func createListenerUsers(completion: @escaping (([String: Any]) -> Void)) {
+        ref.child("users").observe(.value, with: { (snapshot) in
             if let messages = snapshot.value as? [String: Any] {
                 completion(messages)
             }

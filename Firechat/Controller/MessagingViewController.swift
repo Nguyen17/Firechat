@@ -113,6 +113,10 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
                 self.collectionView.reloadData()
             }
         }
+        
+        firebaseManager.createListenerUsers { (snapshot) in
+            self.usersDictionary = snapshot
+        }
     }
     
     // Function to take recieved data and place them into the JSQMessagesVC
