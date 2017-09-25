@@ -40,13 +40,18 @@ class FirebaseManager {
         }
     }
     
-    func signup(userName: String, email: String, password: String, completion: ((User?, Error?) -> Void)?) {
+    func signup(userName: String, email: String, password: String, color: UIColor, completion: ((User?, Error?) -> Void)?) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let completion = completion else { return }
+            
             completion(user, error)
             guard let user = user else {return}
+            let components = color.cgColor.components!
+            let red = components[0]
+            let green = components[1]
+            let blue = components[2]
             if error == nil {
-                let userData = ["provider": user.providerID, "email": user.email, "name": userName]
+                let userData = ["provider": user.providerID, "email": user.email, "name": userName, "color": [red, green, blue]] as [String : Any]
                 self.postUserInfo(uid: user.uid, userData: userData)
             }
         }

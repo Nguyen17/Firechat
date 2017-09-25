@@ -25,10 +25,12 @@ class RevealViewController: SWRevealViewController {
 
 extension RevealViewController: SWRevealViewControllerDelegate {
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
-        if let navVC = self.frontViewController as? UINavigationController,
-            let messagesVC = navVC.viewControllers.first as? MessagingViewController
+        if let messageContainerVC = revealController.frontViewController! as? MessagesContainerViewController
         {
-            messagesVC.keyboardController.textView.resignFirstResponder()
+            if let messsageVC = messageContainerVC.childViewControllers.last as? MessagingViewController
+            {
+                messsageVC.keyboardController.textView.resignFirstResponder()
+            }
         }
     }
 }
