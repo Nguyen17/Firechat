@@ -44,6 +44,18 @@ extension MessagingViewController {
         } else {
             cell.textView?.textColor = UIColor.black
         }
+        
+        // handles scrolling to bottom
+        if indexPath.row == 0 {
+            if firstLoad {
+                inputToolbar.contentView.textView.becomeFirstResponder()
+            }
+        }
+        
+        if indexPath.row == (messages.count - 1) {
+            inputToolbar.contentView.textView.endEditing(true)
+            firstLoad = false
+        }
         return cell
     }
     

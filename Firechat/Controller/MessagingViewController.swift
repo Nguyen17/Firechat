@@ -69,7 +69,8 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
     var channelName: String!
     var messages: [JSQMessage] = []
     var usersDictionary: Dictionary<String, Any> = [:]
-    
+    // bool to tell collectionView to scroll to bottom
+    var firstLoad = true
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
@@ -79,15 +80,15 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
     
         // Used as a default Channel
         navigationItem.title = "Firechat"
-        
+
         firebaseManager.fetchUsers { (userInfo) in
             self.usersDictionary = userInfo
         }
         
         addObservers()
         setupViews()
-        
     }
+    
     
     private func setupViews()
     {
@@ -125,6 +126,7 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
         }
         
         // Reloads entire view with the recieved messages
+        self.firstLoad = true
         self.collectionView.reloadData()
     }
     
@@ -145,6 +147,7 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
                 self.parseMessages(recievedMessages)
             } else {
                 self.messages = []
+                self.firstLoad = true
                 self.collectionView.reloadData()
             }
         }
@@ -153,6 +156,12 @@ class MessagingViewController: JSQMessagesViewController, JSQMessageAvatarImageD
         self.inputToolbar.contentView.textView.text = nil
     }
     
+    private func scrollToBottom() {
+        let lastSectionIndex = (collectionView?.numberOfSections)! - 1
+        let lastItemIndex = (collectionView?.numberOfItems(inSection: lastSectionIndex))! - 1
+        let indexPath = NSIndexPath(item: lastItemIndex, section: lastSectionIndex)
+        collectionView!.scrollToItem(at: indexPath as IndexPath, at: UICollectionViewScrollPosition.bottom, animated: false)
+    }
     
     // Posts a message when the send button is pressed
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
