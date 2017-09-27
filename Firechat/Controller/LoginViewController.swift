@@ -44,6 +44,7 @@ class LoginViewController: UIViewController, AuthenticationInputValidator {
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var firechatLabel: UILabel!
     
     private var firebaseManager = FirebaseManager.instance
     private let notificationCenter = NotificationCenter.default
@@ -57,6 +58,8 @@ class LoginViewController: UIViewController, AuthenticationInputValidator {
     private func setupViews()
     {
         errorMessageLabel.alpha = 0
+        firechatLabel.shadowColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
+        firechatLabel.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     @IBAction func login()

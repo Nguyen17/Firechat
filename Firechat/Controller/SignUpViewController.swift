@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var colorsStackView: UIStackView!
     @IBOutlet weak var signUpButton: RoundedButton!
+    @IBOutlet weak var firechatLabel: UILabel!
     
     @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet weak var topStackViewConstraint: NSLayoutConstraint!
@@ -55,6 +56,7 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
         passwordTextField.delegate = self
         
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     private func setupViews() {
@@ -67,6 +69,10 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
             colorView.layer.shadowOffset = CGSize(width: 1, height: 1)
             
         }
+        
+        firechatLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        firechatLabel.shadowColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
+        firechatLabel.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     @objc private func pickColor(_ recognizer: UITapGestureRecognizer)
@@ -75,6 +81,11 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
         
         colorPick = associatedView.backgroundColor
         signUpButton.backgroundColor = colorPick
+        signUpButton.layer.shadowRadius = 5
+        signUpButton.layer.shadowColor = UIColor.black.cgColor
+        signUpButton.layer.shadowOpacity = 0.7
+        signUpButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        firechatLabel.textColor = colorPick
         unhighlightColors()
     }
     
@@ -146,6 +157,13 @@ extension SignUpViewController: UITextFieldDelegate {
                 self.topStackViewConstraint.constant = targetOffSetForTopConstraint
                 self.view.layoutIfNeeded()
             })
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.25) {
+            self.topStackViewConstraint.constant = self.outerStackViewConstraintSize
+            self.view.layoutIfNeeded()
         }
     }
 }

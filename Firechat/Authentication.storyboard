@@ -106,6 +106,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="vlW-ND-qQe" id="U2x-ot-mzN"/>
                         <outlet property="errorMessageLabel" destination="8e5-Gh-o1j" id="S23-Mh-awH"/>
+                        <outlet property="firechatLabel" destination="MDN-6G-aRD" id="QV6-3J-Uge"/>
                         <outlet property="passwordTextField" destination="08r-ux-8F1" id="e8y-Kk-zTQ"/>
                     </connections>
                 </viewController>
@@ -244,6 +245,7 @@
                         <outlet property="colorsStackView" destination="Egh-kG-wJH" id="V0X-ag-xc6"/>
                         <outlet property="emailTextField" destination="xmS-P6-ijw" id="p8j-8k-kWf"/>
                         <outlet property="errorMessageLabel" destination="LEu-HV-HXS" id="9Mo-oS-heb"/>
+                        <outlet property="firechatLabel" destination="e9B-Mi-jaa" id="8DX-zv-Y3p"/>
                         <outlet property="outerStackView" destination="XMn-E3-htz" id="TDo-Qe-dBM"/>
                         <outlet property="passwordTextField" destination="zQD-Uq-e26" id="7Od-X9-wA3"/>
                         <outlet property="signUpButton" destination="I3j-RC-CQP" id="aHG-QL-ZRI"/>
