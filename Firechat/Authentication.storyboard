@@ -43,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="25" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="08r-ux-8F1">
                                         <rect key="frame" x="0.0" y="65" width="343" height="30"/>
@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XMn-E3-htz">
-                                <rect key="frame" x="16" y="138" width="343" height="231"/>
+                                <rect key="frame" x="16" y="134" width="343" height="231"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEu-HV-HXS">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="15"/>
@@ -173,13 +173,13 @@
                                         <rect key="frame" x="0.0" y="75" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xmS-P6-ijw">
                                         <rect key="frame" x="0.0" y="115" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zQD-Uq-e26">
                                         <rect key="frame" x="0.0" y="155" width="343" height="30"/>
@@ -228,7 +228,7 @@
                             <constraint firstItem="e9B-Mi-jaa" firstAttribute="centerX" secondItem="xBU-YN-AvB" secondAttribute="centerX" id="K3Y-HV-X68"/>
                             <constraint firstItem="T0H-uQ-acA" firstAttribute="leading" secondItem="xBU-YN-AvB" secondAttribute="leading" constant="22" id="TSi-X8-64o"/>
                             <constraint firstItem="e9B-Mi-jaa" firstAttribute="top" secondItem="Tec-HN-7mg" secondAttribute="bottom" constant="40" id="WZR-mG-Rkm"/>
-                            <constraint firstItem="XMn-E3-htz" firstAttribute="centerY" secondItem="xBU-YN-AvB" secondAttribute="centerY" constant="-80" id="gg6-zw-qpm"/>
+                            <constraint firstItem="XMn-E3-htz" firstAttribute="top" secondItem="e9B-Mi-jaa" secondAttribute="bottom" constant="30" id="gKU-lu-aUl"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XMn-E3-htz" secondAttribute="leading" id="idc-Qm-ewo"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -244,7 +244,10 @@
                         <outlet property="colorsStackView" destination="Egh-kG-wJH" id="V0X-ag-xc6"/>
                         <outlet property="emailTextField" destination="xmS-P6-ijw" id="p8j-8k-kWf"/>
                         <outlet property="errorMessageLabel" destination="LEu-HV-HXS" id="9Mo-oS-heb"/>
+                        <outlet property="outerStackView" destination="XMn-E3-htz" id="TDo-Qe-dBM"/>
                         <outlet property="passwordTextField" destination="zQD-Uq-e26" id="7Od-X9-wA3"/>
+                        <outlet property="signUpButton" destination="I3j-RC-CQP" id="aHG-QL-ZRI"/>
+                        <outlet property="topStackViewConstraint" destination="gKU-lu-aUl" id="8Dc-lp-78D"/>
                         <outlet property="usernameTextField" destination="tET-t6-NfZ" id="rAk-6V-Dxb"/>
                     </connections>
                 </viewController>

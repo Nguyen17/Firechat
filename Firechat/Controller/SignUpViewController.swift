@@ -34,6 +34,12 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var colorsStackView: UIStackView!
+    @IBOutlet weak var signUpButton: RoundedButton!
+    
+    @IBOutlet weak var outerStackView: UIStackView!
+    @IBOutlet weak var topStackViewConstraint: NSLayoutConstraint!
+    var outerStackViewConstraintSize: CGFloat = 30.0
+    
     
     let firebaseManager = FirebaseManager()
     let notificationCenter = NotificationCenter.default
@@ -43,6 +49,12 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     private func setupViews() {
@@ -62,6 +74,7 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
         guard let associatedView = recognizer.view else { return }
         
         colorPick = associatedView.backgroundColor
+        signUpButton.backgroundColor = colorPick
         unhighlightColors()
     }
     
@@ -110,5 +123,29 @@ class SignUpViewController: UIViewController, AuthenticationInputValidator {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let info = notification.userInfo {
+            let rect:CGRect = info["UIKeyboardFrameEndUserInfoKey"] as! CGRect
+            
+            // Find target Y
+            let targetY = view.frame.size.height - rect.height - 20 - signUpButton.frame.size.height
+            
+            let textFieldY = outerStackView.frame.origin.y + signUpButton.frame.origin.y
+            
+            let difference = targetY - textFieldY
+        
+            let targetOffSetForTopConstraint = topStackViewConstraint.constant + difference
+            
+            self.view.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.topStackViewConstraint.constant = targetOffSetForTopConstraint
+                self.view.layoutIfNeeded()
+            })
+        }
     }
 }
