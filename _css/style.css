@@ -1,0 +1,103 @@
+/* General */
+
+li {
+    font-family: "Open Sans Condensed";
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    list-style: none;
+}
+
+p {
+    font-family: "Open Sans Condensed";
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+a {
+    color: #f9f9f9;
+}
+
+h1 {
+    font-family: "PT Sans narrow";
+}
+
+
+/* Header Content */
+
+.jumbotron::before {
+    content: "";
+    padding: 10px;
+    background-color: #F22613;
+}
+
+.jumbotron {
+    position: relative;
+    background-color: #F22613;
+    transform: skewY(-3deg);
+}
+
+.jumbotron p {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.jumbotron h1 {
+    font-family: "PT Sans narrow";
+    color: #f9f9f9;
+    text-align: center;
+    font-size: 96px;
+    font-weight: 700;
+}
+
+.nav {
+    
+    margin: 0 auto;
+    background-color: #F22613;
+    color: #a8a8a8;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav ul {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+.nav li {
+    list-style: none;
+    padding-left: 5rem;
+    padding-right:5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        font-size: 1.5rem;
+    }
+    .nav li{
+        padding-left: 1rem;
+        padding-right:1rem;
+    }
+}
+
+.container h1 {
+    color: #212121;
+    text-align: center;
+}
+/* Demo Section */
+.screen-shot{
+    text-align: center;
+}
+.screen-shot ul {
+    display: flex;
+    flex-direction: row;
+}
+.screen-shot li {
+    margin-left: 1rem;
+}
