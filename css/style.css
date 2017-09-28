@@ -22,6 +22,11 @@ h1 {
     font-family: "PT Sans narrow";
 }
 
+/* Images */
+.img-top{
+    border-radius: 50%;
+}
+
 
 /* Header Content */
 
@@ -93,6 +98,32 @@ h1 {
     margin-left: 1rem;
 }
 
+/* Card */
+.uk-card
+{
+    text-align: center;
+
+}
+
+/* Developer Section */
+.developer-section{
+    text-align: center;
+}
+.developer-section p{
+    color: #212121;
+}
+.developer-section ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+}
+
+.developer-section li{
+    padding-left: 1rem;
+    padding-right:1rem;
+}
+
 @media screen and (max-width: 768px) {
 
     .nav {
@@ -108,6 +139,12 @@ h1 {
 
     }
     .screen-shot ul li{
+        margin-bottom: 1rem;
+    }
+    .developer-section ul{
+        flex-direction: column;
+    }
+    .developer-section li{
         margin-bottom: 1rem;
     }
 
