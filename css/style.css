@@ -25,6 +25,8 @@ h1 {
 /* Images */
 .img-top{
     border-radius: 50%;
+    width: 200px;
+    height: 180px;
 }
 
 /* Header Content */
@@ -102,6 +104,9 @@ h1 {
 {
     text-align: center;
 
+}
+.uk-card a{
+    color: blue;
 }
 
 /* Developer Section */
