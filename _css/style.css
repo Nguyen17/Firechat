@@ -76,15 +76,6 @@ h1 {
     padding-right:5rem;
 }
 
-@media screen and (max-width: 768px) {
-    .nav {
-        font-size: 1.5rem;
-    }
-    .nav li{
-        padding-left: 1rem;
-        padding-right:1rem;
-    }
-}
 
 .container h1 {
     color: #212121;
@@ -100,4 +91,25 @@ h1 {
 }
 .screen-shot li {
     margin-left: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav {
+        font-size: 1.5rem;
+    }
+    .nav li{
+        padding-left: 1rem;
+        padding-right:1rem;
+    }
+
+    .screen-shot ul {
+        flex-direction: column;
+
+    }
+    .screen-shot ul li{
+        margin-bottom: 1rem;
+    }
+
+
 }
