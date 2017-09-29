@@ -28,6 +28,10 @@ h1 {
     width: 200px;
     height: 180px;
 }
+.uk-card img{
+    width: 200px;
+    height: 180px;
+}
 
 /* Header Content */
 
@@ -102,6 +106,7 @@ h1 {
 /* Card */
 .uk-card
 {
+    padding: 0;
     text-align: center;
 
 }
@@ -110,8 +115,10 @@ h1 {
 }
 
 /* Developer Section */
-.developer-section{
+/* .developer-section{
     text-align: center;
+    display: block;
+   
 }
 .developer-section p{
     color: #212121;
@@ -124,9 +131,25 @@ h1 {
 }
 
 .developer-section li{
-    padding-left: 1rem;
-    padding-right:1rem;
+  
+} */
+
+.developer-section{
+    text-align: center;
 }
+.developer-section p{
+    color: #212121;
+    
+}
+.developer-section ul {
+    display: flex;
+    flex-direction: row;
+    align-self: auto;    
+}
+.developer-section li {
+    margin-right: 3rem;
+}
+
 
 @media screen and (max-width: 768px) {
 
